@@ -162,14 +162,13 @@
 </template>
 
 <script>
-import { BTable, BButton, BFormInput,BIcon,BIconArrowDown } from "bootstrap-vue";
+import {  BButton, BFormInput} from "bootstrap-vue";
 import data from "../../DATA.json";
 
 export default {
   components: {
-    BTable,
-    BIconArrowDown,
-    BIcon,
+    
+   
     BFormInput,
     BButton,
   },
@@ -209,7 +208,6 @@ export default {
     console.log(data.Items);
   },
   updated() {
-    console.log({results:this.selectedYears});
   },
   computed: {
     results() {
@@ -230,8 +228,13 @@ export default {
             });
           }
         });
-        this.selectedYears = [...new Set(years)].sort((x,y)=>x-y);
+        // if(this.selectedYears)
+    
+        
+
         return [...new Set(years)].sort((x,y)=>x-y);
+      }else{
+        return []
       }
     },
     currencies() {
@@ -256,7 +259,10 @@ export default {
       } else return [];
     },
   },
-  setup() {},
+  setup() {
+ 
+
+  },
 };
 </script>
 
